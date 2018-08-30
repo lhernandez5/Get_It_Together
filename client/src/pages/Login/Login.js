@@ -50,7 +50,7 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     if (this.props.authenticated) {
       return <Redirect to="/home" />;
     }

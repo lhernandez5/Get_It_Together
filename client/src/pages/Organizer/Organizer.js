@@ -50,7 +50,7 @@ class Organizer extends Component {
           "yellow",
           "pink",
           "grey",
-          "black",
+          "magenta",
           "brown"
         ];
         const categoryObject = [];

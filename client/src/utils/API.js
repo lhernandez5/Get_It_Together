@@ -75,7 +75,7 @@ export default {
   },
   // Saves a user to the database
   saveUser: function(userData) {
-    console.log(userData);
+    // console.log(userData);
     return axios.put("/api/users", userData);
   },
   // Updates a user to the database
