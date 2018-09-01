@@ -15,7 +15,7 @@ class Organizer extends Component {
     billsPieChart: [],
     upcomingBills: [],
     email: "",
-    monthlyIncome: [0],
+    monthlyIncome: 0,
     amount: "",
     date: "",
     spendingTotal: 0,
@@ -288,19 +288,26 @@ class Organizer extends Component {
             <div className="incomeApp">
               <Card
                 title={this.state.month + ` Income`}
-                body1={`$` + parseInt(this.state.monthlyIncome, 10).toFixed(2)}
+                body1=
+                { 
+                  (isNaN(parseInt(this.state.monthlyIncome)))
+                    ? `$0.00`
+                    : parseInt(this.state.monthlyIncome, 10).toFixed(2)
+                }
               />
             </div>
             <Card
               title={this.state.month + ` Budget`}
-              body1={
-                `Income    +$` +
-                parseInt(this.state.monthlyIncome, 10).toFixed(2)
+              body1=
+              { 
+                (isNaN(parseInt(this.state.monthlyIncome)))
+                  ? `Income:   $0.00`
+                  : `Income:    +$` +parseInt(this.state.monthlyIncome, 10).toFixed(2)
               }
-              body2={`Spending  -$` + this.state.spendingTotal.toFixed(2)}
-              body3={`Bills     -$` + this.state.billsTotal.toFixed(2)}
+              body2={`Spending:  -$` + this.state.spendingTotal.toFixed(2)}
+              body3={`Bills:     -$` + this.state.billsTotal.toFixed(2)}
               body4={
-                `Savings  $` +
+                `Savings:  $` +
                 (
                   this.state.monthlyIncome -
                   (this.state.billsTotal + this.state.spendingTotal)
